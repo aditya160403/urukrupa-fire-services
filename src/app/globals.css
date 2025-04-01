@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css or your Tailwind CSS file */
+/* Your custom font */
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Use "swap" to load system font first */
+}
+
+/* Apply the custom font to elements */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", sans-serif;
+}
