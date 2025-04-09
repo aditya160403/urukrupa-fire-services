@@ -1,60 +1,31 @@
-name: NodeJS with G installation of `gulp` before running it. Here is the updated workflow configuration:
-   ```yaml
-  ulp
+name: NodeJS with Gulp
 
 on:
   push:
     branches: [ "main" ]
-  pull_request name: NodeJS with Gulp
-
-   on:
-     push:
+  pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-    runs:
-       branches: [ "main" ]
-     pull_request:
-       branches: [-on: ubuntu-latest
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        "main" ]
-
-   jobs:
-     build:
-       runs-on: ubuntu-latest
-
-       strategy:
-         matrix:
-           node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Use Node.js node-version: [18.x, 20.x, 22.x]
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-       steps:
-       ${{ matrix.node-version }}
-      uses: actions/setup - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install --save-dev gulp
 
-       - name: Use Node-node@v4
-      with:
-        node-version: ${{ matrix.js ${{ matrix.node-version }}
-         uses: actions/setup-node@v4
-         with:
-           node-version.node-version }}
-
-    - name: Install dependencies
-      run: |
-        npm install
-        npm install: ${{ matrix.node-version }}
-
-       - name: Install --save-dev gulp
-
-    - name: Build
-      run: gulp dependencies
-         run: npm install
-
-       - name
+      - name: Run Gulp build
+        run: npx gulp
